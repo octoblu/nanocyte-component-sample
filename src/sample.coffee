@@ -2,6 +2,7 @@ ReturnValue = require 'nanocyte-component-return-value'
 
 class Sample extends ReturnValue
   constructor: (options={}, dependencies={}) ->
+    super
     {@_} = dependencies
     @_ ?= require 'lodash'
 
