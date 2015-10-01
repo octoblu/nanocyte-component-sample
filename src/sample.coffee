@@ -1,7 +1,12 @@
 ReturnValue = require 'nanocyte-component-return-value'
 
 class Sample extends ReturnValue
+  constructor: (options={}, dependencies={}) ->
+    {@_} = dependencies
+    @_ ?= require 'lodash'
+
   onEnvelope: (envelope) =>
-    return envelope.message
+    {key, value} = envelope.config
+    "#{key}": @_.sample(value)
 
 module.exports = Sample
